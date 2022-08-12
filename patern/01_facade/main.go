@@ -6,6 +6,18 @@ package main
 https://en.wikipedia.org/wiki/Facade_pattern
 */
 
+/*
+Паттерн Facade относится к структурным паттернам уровня объекта.
+
+Паттерн Facade предоставляет высокоуровневый унифицированный интерфейс в виде набора имен 
+методов к набору взаимосвязанных классов или объектов некоторой подсистемы, что облегчает ее использование.
+
+Плюсы
+-
+Минусы
+-
+*/
+
 import (
 	"errors"
 	"fmt"
@@ -76,14 +88,14 @@ func (shop Shop) Sell(user User, prod string) error {
 	if err != nil {
 		return err
 	}
-	fmt.Printf("[Магазин] Проверка может ли [%s] купить товар!\n", user.Name)
+	fmt.Printf("[Магазин] Проверка может ли [%s] купить [%s]!\n", user.Name, prod)
 	time.Sleep(time.Millisecond * 500)
 	for name, price := range product {
 		if name != prod {
 			continue
 		}
 		if price >= user.GetBalance() {
-			return errors.New("[Магазин] Недостаточно средств для покупки товара!")
+			return errors.New(fmt.Sprintf("[Магазин] Недостаточно средств для покупки [%s]!", prod))
 		}
 		fmt.Printf("[Магазин] Товар [%s] - куплен!", name)
 	}
