@@ -12,7 +12,7 @@ import (
 
 var (
 	bank = pgk.Bank {
-		Name: "БАнк",
+		Name: "Банк",
 		Cards: []pkg.Card{},
 	}
 )
