@@ -40,10 +40,10 @@ type Factory struct {
 }
 
 // Construct сообщает строителю, что делать и в каком порядке.
-func (f Factory) CreateCard() Card {
+func (f Factory) CreateCard(user string) Card {
 	f.Factory.SetCard()
 	f.Factory.SetBalance()
-	f.Factory.SetUser("Udfdf")
+	f.Factory.SetUser(user)
 	return f.Factory.GetCard()
 }
 
@@ -90,6 +90,6 @@ func (card *Card) Show() {
 }
 
 func main() {
-	debitcard := Factory.CreateCard()
+	debitcard := Factory.CreateCard("Name")
 	debitcard.Show()
 }
